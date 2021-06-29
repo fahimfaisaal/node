@@ -19,26 +19,29 @@ const currentPath = __filename;
 
 // console.log(process.env.PATH.split(path.delimiter)); // split all environment path
 
-// // relative path
-// const joinPath = path.join('home', 'user', 'dir', 'name');
-// console.log(joinPath);
+// relative path
+const joinPath = path.join('home', 'user', 'dir', 'name');
+console.log(joinPath);
 
-// // absolute path
-// const resolvePath = path.resolve('home', 'user', 'dir', 'name');
-// console.log(resolvePath);
+// absolute path
+const resolvePath = path.resolve('home', 'user', 'dir', 'name');
+console.log(resolvePath);
 
-// const pathObject = {
-//     dir: joinPath,
-//     // base: 'index.html'
-//     // alternate of base
-//     name: 'main',
-//     ext: '.html'
-// }
+const pathObject = {
+    dir: joinPath,
+    // base: 'index.html'
+    // alternate of base
+    name: 'main',
+    ext: '.html'
+}
 
-// const formatPath = path.format(pathObject);
-// console.log(formatPath)
+const formatPath = path.format(pathObject);
+console.log(formatPath)
 
-// const pathParse = path.parse(formatPath);
-// console.log(pathParse);
+const pathParse = path.parse(formatPath);
+console.log(pathParse);
 
-// console.log(path.delimiter)
+console.log(path.delimiter);
+
+// The path.normalize() method normalizes the given path, resolving '..' and '.' segments.
+console.log(path.normalize(resolvePath));
