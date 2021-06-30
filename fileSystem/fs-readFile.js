@@ -11,8 +11,9 @@ const path = require('path');
 //     }
 // })()
 
-const dataPath = __dirname + path.join('/data', 'data.json');
+const dataPath = path.resolve('fileSystem', 'data', 'data.json');
 
+// sync mode
 // try {
 //     const data = fs.readFileSync(dataPath);
 //     const persons = JSON.parse(data);
@@ -22,10 +23,11 @@ const dataPath = __dirname + path.join('/data', 'data.json');
 //     console.log(e.message)
 // }
 
+// async mode
 async function readFile(readPath) {
     try {
         const data = await fs.readFile(readPath);
-        
+
         return JSON.parse(data);
     } catch (e) {
         return e.message;
@@ -36,5 +38,8 @@ const persons = readFile(dataPath);
 
 persons
     .then(data => {
-    console.log(data)
-})
+        console.log(data);
+    })
+
+
+module.exports = readFile;

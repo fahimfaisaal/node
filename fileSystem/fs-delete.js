@@ -1,7 +1,7 @@
 const fs = require('fs/promises');
 const path = require('path');
 
-const testDirPath = path.resolve('test', 'hello.js');
+const testDirPath = path.resolve('test', 'hello.txt');
 
 // try {
 //     fs.unlinkSync(testDirPath);
@@ -19,4 +19,6 @@ async function deleteFile(deletePath) {
     }
 }
 
-deleteFile(testDirPath)
+deleteFile(testDirPath);
+
+module.exports = deleteFile;
