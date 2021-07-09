@@ -1,18 +1,23 @@
 const express = require('express');
 const app = express();
+const fs = require('fs');
+const path = require('path');
+const cookieParser = require('cookie-parser');
 
-console.clear();
+// relative files
+const buffer = require('./stream_and_buffer/buffer');
+const todoRoutes = require('./Express/routes');
 
 app.use(express.json());
-app.use('/todos', require('./Express/routes'))
+app.use(cookieParser());
+app.use('/todos', todoRoutes);
 
 app.get('/', (req, res) => {
     // console.log(req.app.locals);
 
     // console.log(req.headers.cookie);
     // console.log(cookieParser(req.headers.cookie));
-
-    return res.send('<h1>Hello World!</h1>');
+    return res.send('hello')
 });
 
 app.locals.name = 'my first express app';
